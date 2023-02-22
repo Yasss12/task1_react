@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="stylesheet" href="index.css">
+
+    <title>React App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> 
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script  type="text/babel">
+
+    let App =()=>{
+        return(
+            <div id='body'>
+             <div className='box'>
+            
+             <Statique/>
+                       
+            </div>           
+               <Dynamique/>      
+            </div>
+           
+
+        )
+      };
+      let Statique = ()=>{
+
+        return(
+        <div>
+          <Header/> 
+        </div>
+       
+        )
+      }
+
+      let Dynamique = ()=>{
+
+        return(
+          <div>
+          <table>
+              <tr>
+              <td>  <ArticleG path="./img1.jfif" titre="Interview — What it’s like to work remotely in big-sized product development?" text="People say that developing products isn’t easy. Neither it is to build long-distance relationships. But, how about doing both, simultaneously?" /></td>
+              </tr>
+            </table> 
+            <table>
+              <tr>
+              <td> <ArticleH path="./img3.png" titre="Hybrid vs. Native — Here is how you can choose one over the other…" text="There is no denying it, hybrid mobile development is booming and becoming the main option when considering developing a mobile application due to the lower costs and faster development time. But what are the implications of going for a hybrid approach instead of a native one? What are the advantages and disadvantages of choosing one of the approaches?"/></td>
+              <td><ArticleH path="./img4.png" titre="From monolithic to headless: how and why you should adapt your WordPress stack" text="Every dynamic website consists of two main parts: the backend and the frontend. The backend, which in marketing websites is commonly a Content Management System (CMS), allows the website owners to manage as much content as needed without handling code changes. The frontend displays all of that content for the website users"/></td>
+              </tr>     
+              </table> 
+              </div>
+        )
+      }
+
+      let Header =()=>{
+        return(
+            <header id ='head'>
+              <table style= {{width : "100%" }}>
+                <tr>
+                  <td style= {{width : "70%" }}>
+                <span  id='title1'><b>Pixelmatters</b> </span></td>
+                <td style= {{width : "20%" }}>
+                <div  id="barre" style= {{width : "100%" , display : "flex" }}>              
+                    <a href="">Work</a>
+                    <a href="">Approach</a>
+                    <a href="">Culture</a>
+                    <a href="">Careeres</a>
+                    <a href="">Blog</a>
+                    </div> 
+                    </td>
+                    <td style= {{width : "10%" }}> <Button/> </td>
+                  </tr>
+                  </table>
+            </header>
+        )
+      }
+ function Button() {
+      return <button id='btx' >Get in touch</button>;
+    }
+
+function Image(source){
+    console.log(source );
+    return <div > <img src={source.path}  style= {{ width: "100%" }} alt="photo"/></div>
+   }
+
+function Texte(source){
+    console.log(source );
+    return <div > <h1>{source.titre}</h1>
+      <span >{source.text}</span></div>
+   }
+function TexteP(source){
+    console.log(source );
+    return <div > <h3>{source.titre}</h3>
+      <span >{source.text}</span></div>
+   }
+function ArticleG(props){
+  return(
+    <div   >
+      <table  style= {{ width: "100%" }}>
+        <tr>
+      <td  style= {{width : "60%" }}><Image path={props.path} /></td>
+      <td style= {{width : "40%" }}><tr><Texte text={props.text} titre={props.titre} /></tr>
+        <tr><Presentation /></tr></td>
+      </tr>
+      
+      </table>
+      </div>
+  )
+}
+function ArticleH(props){
+  return(
+    <div  style= {{width : "90%" }} >
+      <table  style= {{ width: "100%" }}>
+        <tr>
+      <td><Image path={props.path} /></td></tr>
+      <tr><td><Texte text={props.text} titre={props.titre} /></td>
+      </tr>
+      </table>
+      </div>
+  )
+}
+function Presentation(){
+  return(
+    <div>
+      <table >
+        <tr>
+      <td style= {{ width: "10%" }}><img id="pres" src="./img2.jpeg"/></td>
+      <td style= {{ width: "90%" }} id="col"><h3>Bruno Teixeira</h3>
+        <span>Lead Product Owner</span>
+
+      </td>
+    </tr>
+      </table>
+      </div>
+  )
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(App())
+     
+
+    </script>
+
+  </body>
+</html>

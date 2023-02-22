@@ -1,0 +1,18 @@
+#pres{
+    width : 70px;
+    border-radius: 50%;
+}
+#barre{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+#btx{
+    color: white;
+    background-color: red;
+    border-color: red;
+    
+}
+#col{
+    line-height: 20%;
+}
